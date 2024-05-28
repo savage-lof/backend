@@ -15,12 +15,12 @@ const sendCategoryCreated = (req, res) => {
 
 const sendCategoryUpdated = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.status(200).send(JSON.stringify({ message: "Категория обновлена" }));
+  res.end("Category updated");
 };
 
-const sendCategoryDelete = (req, res) => {
+const sendCategoryDeleted = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.status(200).send(JSON.stringify({ message: "Категория удалена" }));
+  res.end(JSON.stringify(req.category));
 };
 
 module.exports = {
@@ -28,5 +28,5 @@ module.exports = {
   sendCategoryById,
   sendCategoryCreated,
   sendCategoryUpdated,
-  sendCategoryDelete,
+  sendCategoryDeleted,
 };
