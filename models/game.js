@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const categoryModel = require("./category");
 const userModel = require("./user");
+const categoryModel = require("./category");
 
 const gameSchema = new mongoose.Schema({
   title: {
@@ -37,7 +37,7 @@ const gameSchema = new mongoose.Schema({
   ],
 });
 
-gameSchema.statics.findGameByCategory = async function (category) {
+gameSchema.statics.findGameByCategory = function (category) {
   return this.find({})
     .populate({
       path: "categories",

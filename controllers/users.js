@@ -1,4 +1,3 @@
-const {login} = require("./auth");
 const sendAllUsers = (req, res) => {
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(req.usersArray));
@@ -11,16 +10,17 @@ const sendUserById = (req, res) => {
 
 const sendUserCreated = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(req.game));
+  res.end(JSON.stringify(req.user));
 };
 
 const sendUserUpdated = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.status(200).send(JSON.stringify({ message: "Пользователь обновлен" }));
+  res.end("User updated");
 };
-const sendUserDelete = (req, res) => {
+
+const sendUserDeleted = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.status(200).send(JSON.stringify({ message: "Пользователь удален" }));
+  res.end(JSON.stringify(req.user));
 };
 
 const sendMe = (req, res) => {
@@ -33,6 +33,6 @@ module.exports = {
   sendUserById,
   sendUserCreated,
   sendUserUpdated,
-  sendUserDelete,
+  sendUserDeleted,
   sendMe,
 };

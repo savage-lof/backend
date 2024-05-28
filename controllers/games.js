@@ -1,4 +1,5 @@
 const sendAllGames = (req, res) => {
+  console.log("tyt");
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(req.gamesArray));
 };
@@ -15,12 +16,12 @@ const sendGameCreated = (req, res) => {
 
 const sendGameUpdated = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.status(200).send(JSON.stringify({ message: "Игра обновлена" }));
+  res.end(JSON.stringify(req.game));
 };
 
-const sendGameDelete = (req, res) => {
+const sendGameDeleted = (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.status(200).send(JSON.stringify({ message: "Игра удалена" }));
+  res.end(JSON.stringify(req.game));
 };
 
 module.exports = {
@@ -28,5 +29,5 @@ module.exports = {
   sendGameById,
   sendGameCreated,
   sendGameUpdated,
-  sendGameDelete,
+  sendGameDeleted,
 };
